@@ -1,0 +1,17 @@
+{
+  "ami_id": {
+    "sensitive": true,
+    "type": "string",
+    "value": "ami-0b41f7055516b991a"
+  },
+  "ec2_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "3.110.195.228"
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-011bd0a455e91dd4a"
+  }
+}

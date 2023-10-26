@@ -360,3 +360,22 @@ now we can save state file in the cloud
 
 - Store secrets securely
 - Go to `Secrets Manager` in aws console
+
+## Terraform Module
+
+A module is a set of configuration files in a single directory
+
+- ### Two types of modules
+
+  1.  Local
+  2.  Remote
+
+Modules are the key to writing resuable, maintainable and testable Terraform code
+
+See `modules` directory
+There are `child` modules there,
+It can inherit `required_providers` from the parent module so we can omit it in the `child`
+
+After adding `child` module, you must rerun `init`
+
+A `child` module cannot access the variables of another `child` module

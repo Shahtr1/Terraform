@@ -1,0 +1,8 @@
+vpc_name       = "DevOps Prod VPC"
+vpc_cidr_block = "10.0.0.0/16"
+web_subnet     = "10.0.10.0/24"
+subnet_zone    = "ap-south-1a"
+region         = "ap-south-1"
+server_type    = "t2.micro"
+image_name     = "ami-06791f9213cbb608b"
+public_key     = "C:/Users/tramb/.ssh/test_rsa.pub"
