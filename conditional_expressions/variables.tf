@@ -1,0 +1,3 @@
+variable "isTest" {
+  type = bool
+}

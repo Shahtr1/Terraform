@@ -1,0 +1,26 @@
+#cloud-config
+groups:
+  - devops: [root, sys]
+  - hashicorp
+
+users:
+  - default
+  - name: terraform
+    gecos: terraform
+    shell: /bin/bash
+    primary_group: hashicorp
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    lock_passwd: false
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2VTPJvLFOQQ8/O4phKhIKxufFqLl+oHNYc9DBATnp9QtIshkA2VDA1xgPcHAbKWHACTZ6WZ/KR1SRYlBpJHy1pqR96NRW7eo5bel0tsgVqKouV063p/fRmtYED7T3qqND9a2iGTqXvmOGNjNukj7zZQ4BihQLq8vD0UwT6Cd/Do3DUhPdblnP1epe2SKfDOAtu/KSF2HPKWqI91QNvLP0Ab8ZVNpKKn1oidjqweeqa5IYzaO+R17LTiZMlX/5gsVnHlOuAr9YoxdVLDIS0RUdBxQ5UVKmb9zW6V7u2Ly7sKNgRWvQeAm+KzOA8nwSjKZ0wer8PamPUh9FkREjwsFn test key
+
+packages:
+  - httpd
+  - docker
+
+runcmd:
+  - sudo systemctl start httpd
+  - sudo systemctl start docker
+  - sudo usermod -aG docker ec2-user
+  - sudo docker run -p 8080:80 nginx
